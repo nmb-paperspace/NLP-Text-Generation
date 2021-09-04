@@ -1,0 +1,32 @@
+jobs:
+
+  cloneRepo:
+    resources:
+      instance-type: C3
+    outputs:
+      repo:
+        type: volume
+    uses: git-checkout@v1
+    with:
+      url: https://github.com/nmb-paperspace/NLP-Text-Generation
+
+  generateText:
+    resources:
+      instance-type: P4000
+    needs:
+      - cloneRepo
+    inputs:
+      repo: cloneRepo.outputs.repo
+    outputs:
+      generatedText:
+        type: dataset
+        with:
+          ref: generated-text
+    uses: script@v1
+    with:
+      script: |-
+        cp -R /inputs/repo /nlp
+        cd /nlp
+        python nlp_text_generation.py
+        ls "-aFlR" /outputs/generatedText
+      image: paperspace/transformers-gpu:0.4.0
