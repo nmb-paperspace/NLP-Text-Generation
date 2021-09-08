@@ -12,7 +12,6 @@ random_seed = 42
 max_length = 30
 num_return_sequences = 5
 initial_sentence = "Hello, I'm a language model,"
-outfile = "output.txt"
 
 # Create generator that uses GPT-2
 generator = pipeline('text-generation', model='gpt2')
@@ -24,7 +23,7 @@ set_seed(random_seed)
 output = generator(initial_sentence, max_length = max_length, num_return_sequences = num_return_sequences)
 
 # Write the output to a file
-with open(outfile, 'w') as f:
+with open('output.txt', 'w') as f:
     ival = 1
     for val in output:
         print('---\nOutput {} of {}\n---\n'.format(ival, num_return_sequences), file=f)
