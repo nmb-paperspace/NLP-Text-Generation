@@ -7,14 +7,29 @@
 # Setup
 from transformers import pipeline, set_seed
 
-# Create text generator
+# Settings
+random_seed = 42
+max_length = 30
+num_return_sequences = 5
+initial_sentence = "Hello, I'm a language model,"
+outfile = "output.txt"
+
+# Create generator that uses GPT-2
 generator = pipeline('text-generation', model='gpt2')
 
 # Random seed for text generation
-set_seed(42)
+set_seed(random_seed)
 
-# Generate text and output to file
-output = generator("Hello, I'm a language model,", max_length=30, num_return_sequences=5)
-print(output)
+# Run the generator
+output = generator(initial_sentence, max_length = max_length, num_return_sequences = num_return_sequences)
+
+# Write the output to a file
+with open(outfile, 'w') as f:
+    ival = 1
+    for val in output:
+        print('---\nOutput {} of {}\n---\n'.format(ival, num_return_sequences), file=f)
+        print(val['generated_text'], file=f)
+        if ival < num_return_sequences: print(file=f)
+        ival += 1
 
 print('Done')
