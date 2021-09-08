@@ -1,5 +1,3 @@
-pip install -U transformers
-
 from transformers import pipeline, set_seed
 
 generator = pipeline('text-generation', model='gpt2')

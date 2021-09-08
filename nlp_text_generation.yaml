@@ -27,6 +27,7 @@ jobs:
       script: |-
         cp -R /inputs/repo /nlp
         cd /nlp
+        pip install -U transformers
         python nlp_text_generation.py
         ls "-aFlR" /outputs/generatedText
       image: paperspace/transformers-gpu:0.4.0
