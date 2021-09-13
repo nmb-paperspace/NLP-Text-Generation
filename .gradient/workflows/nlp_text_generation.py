@@ -1,8 +1,18 @@
-# NLP text generation
+# YAML file for Paperspace Gradient NLP Text Generation Tutorial example
+# It runs the GPT-2 model from HuggingFace: https://huggingface.co/gpt2
 #
-# Uses GPT-2 model from HuggingFace: https://huggingface.co/gpt2
+# The Workflow is triggered when its YAML file is present in the .gradient/workflows/ directory
+# in a GitHub repository linked to the user's Gradient project
+# It clones this repo and then in turn calls this file
+# This file outputs the generated text to outputs.txt in a Gradient-managed Dataset
+# The Workflow runs on the Paperspace HuggingFace NLP container (paperspace/transformers-gpu:0.4.0)
+# See the Gradient documentation page for more details: ...
 #
-# Last updated: Sep 08th 2021
+# The 4 values under "Settings" below can be altered to generate different text
+# If the resulting updated version of this file is uploaded to the repo .gradient/workflows/
+# directory, the Workflow will be rerun, and a new output.txt file will be generated
+#
+# Last updated: Sep 13th 2021
 
 # Setup
 from transformers import pipeline, set_seed
