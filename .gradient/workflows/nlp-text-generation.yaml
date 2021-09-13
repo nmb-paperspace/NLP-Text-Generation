@@ -1,3 +1,8 @@
+on:
+  github:
+    branches:
+      only: main
+
 # YAML file for Paperspace Gradient NLP Text Generation Tutorial example
 # It runs the GPT-2 model from HuggingFace: https://huggingface.co/gpt2
 #
@@ -12,11 +17,6 @@
 
 ### TODO: Documentation page URL
 ### Repo to gradient-ai
-
-on:
-  github:
-    branches:
-      only: main
 
 jobs:
 
