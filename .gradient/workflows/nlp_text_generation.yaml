@@ -1,3 +1,16 @@
+# YAML file for Paperspace Gradient NLP Text Generation Tutorial example
+# The Workflow is triggered when this is present in the .gradient/workflows/ in a GitHub repository linked to the user's
+# Gradient project
+# It clones this repo and then in turn calls the file nlp_text_generation.py
+# This file outputs the generated text to outputs.txt in a Gradient-managed Dataset
+# This Workflow runs on the Paperspace HuggingFace NLP container (paperspace/transformers-gpu:0.4.0)
+# See the Gradient documentation page for more details: ...
+#
+# Last updated: Sep 13th 2021
+
+### TODO: Documentation page URL
+### Repo to gradient-ai
+
 on:
   github:
     branches:
@@ -37,3 +50,9 @@ jobs:
         mv output.txt /outputs/generatedText
         ls "-aFlR" /outputs/generatedText
       image: paperspace/transformers-gpu:0.4.0
+
+# Appendix: Extra details
+#
+# pip3 install updates transformers from the version on the image to the latest
+# This isn't required, but gives access to more models
+# The script fails if "python" is used instead of "python3"
