@@ -22,7 +22,7 @@ The Workflow runs on the Paperspace HuggingFace NLP container (`paperspace/trans
 
 ## Steps to run this tutorial
 
-...
+**TODO**
 
 ### Altering the model settings and triggering a Workflow rerun
 
