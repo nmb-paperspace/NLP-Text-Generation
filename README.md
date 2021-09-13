@@ -20,11 +20,11 @@ The Workflow is triggered to run when the YAML file is present in the `.gradient
 
 The Workflow runs on the Paperspace HuggingFace NLP container (`paperspace/transformers-gpu:0.4.0`).
 
-# Steps to run this tutorial
+## Steps to run this tutorial
 
 ...
 
-## Altering the model settings and triggering a Workflow rerun
+### Altering the model settings and triggering a Workflow rerun
 
 The ability to trigger Workflow reruns is useful in several situations, especially more production-oriented ones (CI/CD, etc.) where the state of the collection of code, data, deployments, models, and so on should be consistent.
 
@@ -32,6 +32,6 @@ Here, changing the model settings can be used to trigger a rerun of the model. T
 
 If the resulting updated version of this file is uploaded to the repo `.gradient/workflows/` directory, and the project is linked to the repo, the Workflow will be rerun. A new `output.txt` file is generated, and placed in a new version of the output Gradient-managed Dataset.
 
-# Next Steps
+## Next Steps
 
 See the documentation page for this tutorial (**TODO**: Link) for some suggested next steps (e.g., you can run the larger GPT-Neo instead of GPT-2).
