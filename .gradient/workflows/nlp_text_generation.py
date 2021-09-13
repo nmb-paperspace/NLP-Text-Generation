@@ -1,4 +1,4 @@
-# YAML file for Paperspace Gradient NLP Text Generation Tutorial example
+# Python file for Paperspace Gradient NLP Text Generation Tutorial example
 # It runs the GPT-2 model from HuggingFace: https://huggingface.co/gpt2
 #
 # The Workflow is triggered when its YAML file is present in the .gradient/workflows/ directory
