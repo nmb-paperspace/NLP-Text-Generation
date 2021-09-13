@@ -34,4 +34,4 @@ If the resulting updated version of the `nlp_text_generation.py` file is uploade
 
 ## Next Steps
 
-See the documentation page for this tutorial (**TODO**: Link) for some suggested next steps (e.g., you can run the larger GPT-Neo instead of GPT-2).
+See the documentation page for this tutorial (**TODO**: Link) for some suggested next steps (e.g., you can run the newer+larger GPT-Neo instead of GPT-2).
