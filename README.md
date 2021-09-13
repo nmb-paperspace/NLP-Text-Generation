@@ -14,7 +14,7 @@ The example shows:
  - Triggering a Workflow to rerun based upon a change in the repository, as needed in many production systems
  - Versioned Gradient Datasets as output
 
-The repo contains 2 files in the `.gradient/workflows` directory: `nlp_text_generation.py` and `nlp_text_generation.yaml`. The YAML file contains the Gradient Workflow which in turn calls the Python script.
+The repo contains 2 files: `nlp_text_generation.py` in the main directory, and `nlp_text_generation.yaml`in the `.gradient/workflows` directory. The YAML file contains the Gradient Workflow which in turn calls the Python script.
 
 The Workflow is triggered to run when the YAML file is present in the `.gradient/workflows/` directory, and the repo is linked to the user's Gradient project. The Workflow clones this repo and then in turn calls the Python script. The script outputs the generated text to the file `outputs.txt` in a Gradient-managed Dataset, which the user can then view.
 
@@ -26,11 +26,11 @@ The Workflow runs on the Paperspace HuggingFace NLP container (`paperspace/trans
 
 ### Altering the model settings and triggering a Workflow rerun
 
-The ability to trigger Workflow reruns is useful in several situations, especially more production-oriented ones (CI/CD, etc.) where the state of the collection of code, data, deployments, models, and so on should be consistent.
+The ability to trigger Workflow reruns is useful in several situations, especially more production-oriented ones such as CI/CD, where the state of the collection of code, data, deployments, models, and so on should be consistent.
 
 Here, changing the model settings can be used to trigger a rerun of the model. The 4 values under "Settings" in the `nlp_text_generation.py` script (random seed, maximum text length, number of returned text sequences, and the initial text sentence) can be altered to generate different text.
 
-If the resulting updated version of this file is uploaded to the repo `.gradient/workflows/` directory, and the project is linked to the repo, the Workflow will be rerun. A new `output.txt` file is generated, and placed in a new version of the output Gradient-managed Dataset.
+If the resulting updated version of the `nlp_text_generation.py` file is uploaded to the repo main directory to replace the one present, and the project remains linked to the repo, the Workflow will be rerun. A new `output.txt` file is generated, and placed in a new version of the output Gradient-managed Dataset.
 
 ## Next Steps
 
