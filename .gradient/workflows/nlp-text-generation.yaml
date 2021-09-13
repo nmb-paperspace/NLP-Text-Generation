@@ -22,7 +22,7 @@ jobs:
 
   cloneRepo:
     resources:
-      instance-type: C3
+      instance-type: C5 #C3
     outputs:
       repo:
         type: volume
