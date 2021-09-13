@@ -32,7 +32,7 @@ jobs:
 
   generateText:
     resources:
-      instance-type: P4000
+      instance-type: C3 #P4000
     needs:
       - cloneRepo
     inputs:
