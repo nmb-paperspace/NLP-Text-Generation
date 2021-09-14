@@ -1,17 +1,16 @@
 # YAML file for Paperspace Gradient NLP Text Generation Tutorial example
 # It runs the GPT-2 model from HuggingFace: https://huggingface.co/gpt2
 #
-# The Workflow is triggered when this is present in the .gradient/workflows/ directory in a GitHub repository linked to
-# the user's Gradient project
+# The Workflow is triggered when this is present in the .gradient/workflows/ directory in a GitHub
+# repository linked to the user's Gradient project
 # It clones this repo and then in turn calls the file nlp_text_generation.py
 # This file outputs the generated text to outputs.txt in a Gradient-managed Dataset
 # This Workflow runs on the Paperspace HuggingFace NLP container (paperspace/transformers-gpu:0.4.0)
-# See the Gradient documentation page for more details: ...
 #
-# Last updated: Sep 13th 2021
-
-### TODO: Documentation page URL
-### Repo to gradient-ai
+# See the Gradient documentation page for more details:
+# https://docs.paperspace.com/gradient/get-started/tutorials-list/example-workflow-nlp-text-generator
+#
+# Last updated: Sep 14th 2021
 
 on:
   github:
@@ -22,13 +21,13 @@ jobs:
 
   cloneRepo:
     resources:
-      instance-type: C5 #C3
+      instance-type: C3
     outputs:
       repo:
         type: volume
     uses: git-checkout@v1
     with:
-      url: https://github.com/nmb-paperspace/NLP-Text-Generation
+      url: https://github.com/gradient-ai/NLP-Text-Generation
 
   generateText:
     resources:
@@ -41,7 +40,7 @@ jobs:
       generatedText:
         type: dataset
         with:
-          ref: demo-dataset #generated-text
+          ref: demo-dataset
     uses: script@v1
     with:
       script: |-
@@ -61,3 +60,6 @@ jobs:
 # Everything here is assumed to be running in the main branch of the repository
 # The generateText job is OK on C5 (CPU) or P4000 (GPU) but will fail on C3,
 # because that instance type has insufficient memory
+# The output dataset used is "demo-dataset", which is auto-generated in Gradient for each team
+# This avoids requiring the creation of an output dataset before the YAML is run
+# The output can be directed elsewhere, provided the alternative output Dataset location has been created
